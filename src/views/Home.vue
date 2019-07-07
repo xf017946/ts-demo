@@ -39,6 +39,7 @@ export default class Home extends Vue {
   ];
   mounted() {
     // 111
+    this.$toast('312121');
   }
   get swiper() {
     return (this.$refs.mySwiper as any).swiper;
