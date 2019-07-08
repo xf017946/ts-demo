@@ -5,9 +5,16 @@ import store from './store';
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css';
 Vue.use(Mint);
-// Vue.prototype.$toast = (): void => {
-//   console.log('toast');
-// };
+
+// 全局范围的扩大仅可直接嵌套在外部模块中或环境模块声明中。ts(2669)
+declare global {
+  interface Window {
+    test: string;
+    testFn(name: string, address?: string): string;
+  }
+}
+
+window.test = 'test'; // 添加全局方法
 
 Vue.config.productionTip = false;
 

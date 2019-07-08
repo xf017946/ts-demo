@@ -12,6 +12,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+// https://github.com/kaorun343/vue-property-decorator
+// https://github.com/vuejs/vue-class-component
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 // require styles
 import 'swiper/dist/css/swiper.css';
@@ -35,14 +37,16 @@ export default class Home extends Vue {
     },
   };
   bannerList: string[] | null = [];
-  mounted() {
+  mounted(): void {
     // setInterval(() => {
     //   // (this as any).$toast('312121'); 方案1
     //   this.$toast('312121');
     // }, 5000);
+    const dom = document.querySelector('home');
     this.getPageInfo();
   }
   get swiper() {
+    // return (this.$refs.mySwiper as HTMLFormElement).swiper;
     return (this.$refs.mySwiper as any).swiper;
   }
   // computed: {
@@ -72,5 +76,4 @@ export default class Home extends Vue {
     width: 100%;
   }
 }
-
 </style>
