@@ -11,10 +11,12 @@ declare global {
   interface Window {
     test: string;
     testFn(name: string, address?: string): string;
+    [propName: string]: any; // 索引签名跳过检查
   }
 }
 
 window.test = 'test'; // 添加全局方法
+window.test2 = 1;
 
 Vue.config.productionTip = false;
 
